@@ -1,0 +1,130 @@
+body {
+  font-family: "Poppins", sans-serif; /* Used a modern font for a clean look */
+  background-color: #f3f4f6;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #333;
+  font-weight: 600;
+  height: 100vh;
+  transition: background-color 0.3s ease;
+}
+
+.app {
+  background: #f0fdf4; /* Light green background that complements the rest of the theme */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Softer shadow for depth */
+  border-radius: 12px; /* Rounded corners for a more modern look */
+  overflow: hidden;
+  width: 500px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+.app:hover {
+  transform: translateY(-10px); /* Slight hover effect for interactivity */
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2); /* Enhance hover shadow */
+}
+
+.header {
+  background: linear-gradient(135deg, #11998e, #38ef7d); /* Gradient background */
+  color: #fff;
+  padding: 25px;
+  text-align: center;
+  font-size: 22px; /* Larger font size */
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase; /* Makes header text stand out */
+}
+
+.todo-list {
+  padding: 25px;
+}
+
+.input-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.input-container input {
+  flex: 1;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  margin-right: 12px;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+
+.input-container input:focus {
+  border-color: #38ef7d; /* Highlight input on focus */
+  outline: none;
+}
+
+.add-btn {
+  background: linear-gradient(135deg, #11998e, #38ef7d); /* Matching gradient */
+  color: #fff;
+  border: none;
+  padding: 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.add-btn:hover {
+  background-color: #0d6b5d; /* Darken button on hover */
+}
+
+.todo-item {
+  display: flex;
+  justify-content: space-between;
+
+  align-items: center;
+  padding: 15px 0;
+  border-bottom: 1px solid #ddd;
+  transition: background-color 0.3s ease;
+}
+
+.todo-item:hover {
+  background-color:  #1cd46336;/* Highlight item on hover */
+  border-radius: 3px;
+}
+
+.todo-item:last-child {
+  border-bottom: none;
+}
+
+.icons {
+  display: flex;
+  gap: 12px;
+}
+
+.edit-icon, .delete-icon {
+  cursor: pointer;
+  font-size: 18px;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.edit-icon:hover {
+  color: #38ef7d;
+  transform: scale(1.2); /* Grow icon slightly on hover */
+}
+
+.delete-icon:hover {
+  color: #ff4757;
+  transform: scale(1.2); /* Grow icon slightly on hover */
+}
+
+.footer {
+  background: linear-gradient(135deg, #11998e, #38ef7d); /* Matching gradient */
+  color: #fff;
+  text-align: center;
+  padding: 15px;
+  font-size: 14px;
+  font-weight: 500;
+  border-top: 1px solid #e0e0e0;
+}
+
