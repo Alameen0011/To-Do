@@ -1,23 +1,24 @@
 import { useState } from "react";
+
 import "./App.css";
-import { FaPlus, FaSave, FaEdit, FaTrash } from "react-icons/fa";
 
 function App() {
   const [InputData, setInputData] = useState("");
   const [Item, setItem] = useState([]);
-  const [isEditing, setIsEditing] = useState(false);
-  const [editingIndex, setEditingIndex] = useState(null);
+  const [edit, setEdit] = useState(null);
 
   const addItem = () => {
     if (InputData.trim() !== "") {
-      if (isEditing) {
-        const updatedItems = [...Item];
-        updatedItems[editingIndex] = InputData;
-        setItem(updatedItems);
-        setIsEditing(false);
-        setEditingIndex(null);
+      if (Item.includes(InputData.trim())) {
+        console.log("Item already exists");
+      } else if (edit !== null) {
+        const updated = Item.map((val, index) =>
+          index === edit ? InputData.trim() : val
+        );
+        setItem(updated);
+        setEdit(null);
       } else {
-        setItem([...Item, InputData]);
+        setItem([...Item, InputData.trim()]);
       }
       setInputData("");
     } else {
@@ -29,17 +30,15 @@ function App() {
     const updatedItem = Item.filter((_, index) => id !== index);
     setItem(updatedItem);
   };
-
-  const editItem = (index) => {
-    setInputData(Item[index]);
-    setIsEditing(true);
-    setEditingIndex(index);
+  const editItem = (id) => {
+    setInputData(Item[id]);
+    setEdit(id);
   };
 
   return (
     <div className="app">
       <header className="header">
-        <h1>😶‍🌫️</h1>
+        <h1>Todo</h1>
       </header>
       <main className="todo-list">
         <div className="input-container">
@@ -50,18 +49,23 @@ function App() {
             onChange={(e) => setInputData(e.target.value)}
           />
           <button className="add-btn" onClick={addItem}>
-            {isEditing ? <FaSave /> : <FaPlus />}
+            {edit !== null ? "Save" : "+"}
           </button>
         </div>
         {Item.map((val, index) => (
           <div className="todo-item" key={index}>
             <span>{val}</span>
             <div className="icons">
-              <FaTrash
+              <button
                 className="delete-icon"
                 onClick={() => deleteItem(index)}
-              />
-              <FaEdit className="edit-icon" onClick={() => editItem(index)} />
+              >D</button>
+
+              <button
+                className="delete-icon"
+                onClick={() => editItem(index)}
+              >E</button>
+              
             </div>
           </div>
         ))}
