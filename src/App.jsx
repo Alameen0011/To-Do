@@ -73,7 +73,7 @@ function App() {
       </main>
       <footer className="footer">
         <p>©sayy_alameen</p>
-        <Hello/>
+      
       </footer>
     </div>
   );
