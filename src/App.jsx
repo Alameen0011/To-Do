@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 import "./App.css";
+import Hello from "./components/Hello";
 
 function App() {
   const [InputData, setInputData] = useState("");
@@ -72,6 +73,7 @@ function App() {
       </main>
       <footer className="footer">
         <p>©sayy_alameen</p>
+        <Hello/>
       </footer>
     </div>
   );
